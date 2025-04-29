@@ -20,4 +20,8 @@ def predict():
     msg = request.get_json()
     return "Provided content was: " + str(msg)
 
+# @app.route("/", methods=["GET"])
+# def index():
+#   return "Obladi oblada"
+
 app.run(host="0.0.0.0", port=8080, debug=True)
