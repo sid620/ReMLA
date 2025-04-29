@@ -1,5 +1,4 @@
 name: Release
-run: echo "The actor is ${{github.actor}}"
 on: push
 jobs:
   build:
@@ -12,6 +11,7 @@ jobs:
         username: ${{github.actor}}
         password: ${{secrets.GH_TOKEN}}
     - run:  | 
+        echo "The actor is ${{github.actor}}"
         IMG="ghcr.io/${{github.repository}}"
         IMG=${IMG@L}
         docker build --tag $IMG:latest .
