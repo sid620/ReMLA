@@ -12,6 +12,7 @@ jobs:
         password: ${{secrets.GH_TOKEN}}
     - run:  | 
         echo "The actor is ${{github.actor}}"
+        cd W2
         IMG="ghcr.io/${{github.repository}}"
         IMG=${IMG@L}
         docker build --tag $IMG:latest .
