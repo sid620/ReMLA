@@ -4,7 +4,7 @@ from flasgger import Swagger
 app = Flask(__name__)
 swagger = Swagger(app)
 
-@app.route("/", methods=["POST"])
+@app.route("/predict/", methods=["POST"])
 def predict():
     """
     Submit some JSON data to be processed
@@ -20,8 +20,15 @@ def predict():
     msg = request.get_json()
     return "Provided content was: " + str(msg)
 
-# @app.route("/", methods=["GET"])
-# def index():
-#   return "Obladi oblada"
+@app.route("/index/", methods=["GET"])
+def index():
+  """
+  Return phrase 
+  ---
+  responses:
+    200:
+      description: Some output
+  """
+  return "Obladi oblada"
 
 app.run(host="0.0.0.0", port=8080, debug=True)
